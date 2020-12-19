@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Global Temperatures</title>
+    <!-- style sheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- github top level scripts required -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="../index.html">Climate Change</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Visualizations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="global-temperatures.html">Global Temperatures</a>
+                        <a class="dropdown-item" href="location-temperatures.html">Location Temperatures</a>
+                        <a class="dropdown-item" href="scatter-plot-matrix.html">Scatter Plot Matrix</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="data-table.html">Data</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- page container -->
+    <div class="container">
+        <div class="row"> 
+            <div class="col-xs-12 col-md-12">
+                <div class="page-text">
+                    <h2>Data</h2>
+                    <hr>
+                    <p>The following table includes all of the data used for plotting during this project.</p>
+                </div>
+            </div>
+
+            <!-- filters -->
+            <div class="col-xs-12 col-md-2">
+                <aside class="filters">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Filter Search</div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <li class="filter list-group-item">
+                                        <label for="city">Enter a City</label>
+                                        <input class="form-control" id="city" type="text" placeholder="Los Angeles">
+                                    </li>
+                                    <li class="filter list-group-item">
+                                        <label for="waterTemp">Enter a Water Temperature</label>
+                                        <input class="form-control" id="waterTemp" type="text" placeholder="63">
+                                    </li>
+                                </div>
+                                <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                                <button id="reset-btn" type="button" class="btn btn-default">Reset Table</button>
+                            </form>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- table -->
+            <div class="col-xs-12 col-md-10">
+                <div id="table-area" class="">
+                    <table id="co2-table" class="table table-striped table-responsive-md table-responsive-xs">
+                        <thead>
+                            <tr>
+                                <!-- insert table headers -->
+                                <th class="table-head">Item1</th>
+                                <th class="table-head">Item2</th>
+                                <th class="table-head">Item3</th>
+                                <th class="table-head">Item4</th>
+                                <th class="table-head">Item5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- append table row data -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>     
+        </div>
+    </div>
+
+</body>
+
+</html>
