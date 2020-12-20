@@ -1,0 +1,84 @@
+/* 
+using color pallet from: color-hex.com
+
+https://www.color-hex.com/color-palette/89702
+Trees and Nature
+    dark green          RGB (43,70,60)      #2b463c
+    light forest green  RGB (104,143,78)    #688f4e
+    meadow green        RGB (177,209,130)   #b1d182
+    light sand          RGB (244,241,233)   #f4f1e9
+    white               RGB (255,255,255)   #ffffff
+
+https://www.color-hex.com/color-palette/97059
+greyscaled
+    white-grey          RGB (238,238,238)   #eeeeee
+    light grey          RGB (170,174,182)   #aaaeb6
+    grey                RGB (128,134,144)   #808690
+    medium grey         RGB (72,75,84)      #484b54
+    dark grey           RGB (48,51,58)      #30333a
+*/
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #f4f1e9;
+    font-family: sans-serif;
+    font-size:1em;
+}
+
+.page-text {
+    background: #ffffff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+hr {
+    color: #aaaeb6;
+}
+
+/* NAVBAR formats------------------------------------------------------------ */
+.navbar {
+    background: #2b463c;
+    width: 100%;
+    padding:0;    
+}
+
+.navbar-light .navbar-brand {
+    margin-left: 3%;
+    /* background: #b1d182; */
+    padding: 15px;
+    min-height: 60px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #eeeeee;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    position: absolute;
+    right: 3%;
+    z-index: 20;
+}
+
+.navbar-nav .nav-item{
+    padding: 10px;
+    background: #2b463c;
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+
+
+/* BODY TEXT INFO formats------------------------------------------------------------ */
+
+
+/* PAGE VISUALS formats------------------------------------------------------------ */
+
+
+/* TABLE formats------------------------------------------------------------ */
+
+
+/* MEDIA formats------------------------------------------------------------ */
