@@ -119,6 +119,67 @@ p {
 }
 
 /* TABLE formats------------------------------------------------------------ */
+.filters {
+    background-color: #688f4e;
+}
 
+.filters .panel-heading {
+    color: #eeeeee;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    padding: 15px;
+    background-color: #2b463c;
+}
+
+.panel-body {
+    padding: 0;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+form {
+    text-align: center;
+}
+
+.form-group {
+    margin: 0;
+}
+
+.list-group-item {
+    background-color: #688f4e;
+    padding: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    border: transparent;
+    /* fonts */
+    font-size: 14px;
+    color: #eeeeee;
+    text-align: left;
+}
+
+.list-group-item input{
+    font-size: 14px;
+}
+
+.filters .btn {
+    /* display: inline-block;
+    margin-left: auto;
+    margin-right: auto; */
+    background-color: #688f4e;
+    border: 1px;
+    border-color: transparent;
+    font-size: 14px;
+    color: #eeeeee;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#table-area th {
+    text-align: center;
+    color: #30333a;
+    font-weight: bold;
+}
 
 /* MEDIA formats------------------------------------------------------------ */
