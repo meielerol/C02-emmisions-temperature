@@ -58,6 +58,11 @@ hr {
     text-decoration: none;
 }
 
+.navbar-light .navbar-brand.active,
+.navbar-light .navbar-brand:hover {
+    color: #b1d182;
+}
+
 .navbar-nav {
     position: absolute;
     right: 3%;
@@ -80,7 +85,7 @@ hr {
     color: #b1d182;
 }
 
-.navbar-light .navbar-nav .dropdown-item {
+.dropdown-item {
     /* background-color: #b1d182; */
     color: #30333a;
 }
@@ -89,11 +94,29 @@ hr {
     background-color: #b1d182;
 }
 
-/* BODY TEXT INFO formats------------------------------------------------------------ */
+.navbar-toggler {
+    background-color: #eeeeee;
+    margin-right: 3%;
+}
 
+/* BODY TEXT INFO formats------------------------------------------------------------ */
+h2 {
+    color: #30333a;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: left;
+}
+
+p {
+    padding: 5px;
+}
 
 /* PAGE VISUALS formats------------------------------------------------------------ */
-
+.visual {
+    padding: 20px;
+    border-width: thin;
+    border-color: #2b463c;
+}
 
 /* TABLE formats------------------------------------------------------------ */
 
