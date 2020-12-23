@@ -33,6 +33,7 @@ html, body {
     padding-bottom: 40px;
     padding-left: 15px;
     padding-right: 15px;
+    margin: 60px; 
 }
 
 hr {
@@ -70,7 +71,23 @@ hr {
     font-weight: bold;
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: #eeeeee;
+}
 
+.navbar-light .navbar-nav .nav-item.active .nav-link,
+.navbar-light .navbar-nav .nav-item:hover .nav-link {
+    color: #b1d182;
+}
+
+.navbar-light .navbar-nav .dropdown-item {
+    /* background-color: #b1d182; */
+    color: #30333a;
+}
+
+.dropdown-menu {
+    background-color: #b1d182;
+}
 
 /* BODY TEXT INFO formats------------------------------------------------------------ */
 
