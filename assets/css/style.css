@@ -80,7 +80,7 @@ hr {
     color: #b1d182;
 }
 
-.navbar-light .navbar-nav .dropdown-item {
+.dropdown-item {
     /* background-color: #b1d182; */
     color: #30333a;
 }
@@ -90,10 +90,21 @@ hr {
 }
 
 /* BODY TEXT INFO formats------------------------------------------------------------ */
+h2 {
+    color: #30333a;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: left;
+}
 
+p {
+    padding: 5px;
+}
 
 /* PAGE VISUALS formats------------------------------------------------------------ */
-
+.visual {
+    margin: 20px;
+}
 
 /* TABLE formats------------------------------------------------------------ */
 
