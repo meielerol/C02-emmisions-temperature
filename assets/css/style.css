@@ -58,6 +58,11 @@ hr {
     text-decoration: none;
 }
 
+.navbar-light .navbar-brand.active,
+.navbar-light .navbar-brand:hover {
+    color: #b1d182;
+}
+
 .navbar-nav {
     position: absolute;
     right: 3%;
@@ -89,6 +94,11 @@ hr {
     background-color: #b1d182;
 }
 
+.navbar-toggler {
+    background-color: #eeeeee;
+    margin-right: 3%;
+}
+
 /* BODY TEXT INFO formats------------------------------------------------------------ */
 h2 {
     color: #30333a;
@@ -103,7 +113,9 @@ p {
 
 /* PAGE VISUALS formats------------------------------------------------------------ */
 .visual {
-    margin: 20px;
+    padding: 20px;
+    border-width: thin;
+    border-color: #2b463c;
 }
 
 /* TABLE formats------------------------------------------------------------ */
