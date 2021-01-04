@@ -18,7 +18,7 @@ HTML: [global-temperatures.html](https://github.com/meielerol/CO2-emmisions-temp
 
 JS: []()
 
-Webpage: (https://meielerol.github.io/CO2-emmisions-temperature/pages/global-temperatures.html)
+Webpage: https://meielerol.github.io/CO2-emmisions-temperature/pages/global-temperatures.html
 
 <p align="center"><img src="" alt="Location Based Time Series Plot"></p>
 
@@ -28,7 +28,7 @@ HTML: [location-temperatures.html](https://github.com/meielerol/CO2-emmisions-te
 
 JS: []()
 
-Webpage: (https://meielerol.github.io/CO2-emmisions-temperature/pages/location-temperatures.html)
+Webpage: https://meielerol.github.io/CO2-emmisions-temperature/pages/location-temperatures.html
 
 <p align="center"><img src="" alt="Scatter Plot Matrices of Temperature Variables"></p>
 
@@ -38,7 +38,7 @@ HTML: [scatter-plot-matrix.html](https://github.com/meielerol/CO2-emmisions-temp
 
 JS: []()
 
-Webpage: (https://meielerol.github.io/CO2-emmisions-temperature/pages/scatter-plot-matrix.html)
+Webpage: https://meielerol.github.io/CO2-emmisions-temperature/pages/scatter-plot-matrix.html
 
 <p align="center"><img src="https://github.com/meielerol/CO2-emmisions-temperature/blob/main/images/data-table.png" alt="Dataset Table"></p>
 
@@ -49,8 +49,8 @@ CO2-emmisions-temperature/blob/main/pages/data-table.html)
 
 JS: [data-table.js](https://github.com/meielerol/CO2-emmisions-temperature/blob/main/assets/js/data-table.js)
 
-Webpage: (https://meielerol.github.io/CO2-emmisions-temperature/pages/data-table.html)
+Webpage: https://meielerol.github.io/CO2-emmisions-temperature/pages/data-table.html
 
 ## Website
 
-(https://meielerol.github.io/CO2-emmisions-temperature/index.html)
+https://meielerol.github.io/CO2-emmisions-temperature/index.html
