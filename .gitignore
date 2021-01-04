@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# ignore config log
+config.js
+
+# ignore mac metadata file
+*DS_Store
