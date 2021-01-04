@@ -18,7 +18,7 @@ HTML: [global-temperatures.html](https://github.com/meielerol/CO2-emmisions-temp
 
 JS: []()
 
-Webpage: [https://meielerol.github.io/CO2-emmisions-temperature/pages/global-temperatures.html]
+Webpage: (https://meielerol.github.io/CO2-emmisions-temperature/pages/global-temperatures.html)
 
 <p align="center"><img src="" alt="Location Based Time Series Plot"></p>
 
@@ -28,18 +28,17 @@ HTML: [location-temperatures.html](https://github.com/meielerol/CO2-emmisions-te
 
 JS: []()
 
-Webpage: [https://meielerol.github.io/CO2-emmisions-temperature/pages/location-temperatures.html]
+Webpage: (https://meielerol.github.io/CO2-emmisions-temperature/pages/location-temperatures.html)
 
 <p align="center"><img src="" alt="Scatter Plot Matrices of Temperature Variables"></p>
 
 `Multiple Scatter Plots` provides a matrices of different scatter plots for water temperature, year, C02 levels. This pairs various axis together to create a visualization of the possible scatter plots and relations between variables.
 
-HTML: [scatter-plot-matrix.html](https://github.com/meielerol/
-CO2-emmisions-temperature/blob/main/pages/scatter-plot-matrix.html)
+HTML: [scatter-plot-matrix.html](https://github.com/meielerol/CO2-emmisions-temperature/blob/main/pages/scatter-plot-matrix.html)
 
 JS: []()
 
-Webpage: [https://meielerol.github.io/CO2-emmisions-temperature/pages/scatter-plot-matrix.html]
+Webpage: (https://meielerol.github.io/CO2-emmisions-temperature/pages/scatter-plot-matrix.html)
 
 <p align="center"><img src="https://github.com/meielerol/CO2-emmisions-temperature/blob/main/images/data-table.png" alt="Dataset Table"></p>
 
