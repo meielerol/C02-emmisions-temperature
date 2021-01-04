@@ -44,8 +44,7 @@ Webpage: https://meielerol.github.io/CO2-emmisions-temperature/pages/scatter-plo
 
 `Data Table` allows users to filter through and explore the designated dataset used for the charts and visuals on the webpage.
 
-HTML: [data-table.html](https://github.com/meielerol/
-CO2-emmisions-temperature/blob/main/pages/data-table.html)
+HTML: [data-table.html](https://github.com/meielerol/CO2-emmisions-temperature/blob/main/pages/data-table.html)
 
 JS: [data-table.js](https://github.com/meielerol/CO2-emmisions-temperature/blob/main/assets/js/data-table.js)
 
