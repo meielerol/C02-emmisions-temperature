@@ -7,6 +7,7 @@ var data = d3.csv("../assets/datasets/cleaned_major_city_temp.csv")
 //console log it
 console.log(data)
 //data pull is successful !!!
+
 // import { swatches } from "@d3/color-legend"
 
 //next build the plot
@@ -60,28 +61,29 @@ width = 954
 
 padding = 50
 
-size = (width - (columns.length + 1) * padding) / columns.length + padding   
+size = (width - (columns.length + 1) * padding) / columns.length + padding
 
 x = columns.map(c => d3.scaleLinear()
-        .domain(d3.extent(data, d => d[c]))
-        .rangeRound([padding / 2, size - padding / 2]));
+    .domain(d3.extent(data, d => d[c]))
+    .rangeRound([padding / 2, size - padding / 2]));
 
-    y = x.map(x => x.copy().range([size - padding / 2, padding / 2]))
+y = x.map(x => x.copy().range([size - padding / 2, padding / 2]))
 
-    z = d3.scaleOrdinal()
-        .domain(data.map(d => d.average_temperature))
-        .range(d3.schemeCategory10);
+z = d3.scaleOrdinal()
+    .domain[0, d3.max(d => d.count)]
+    // .range(margin.top, height - margin.bottom);
 
-    // yAxis = {
-    //     const axis = d3.axisLeft()
-    //     .ticks(6)
-    //     .tickSize(-size * columns.length);
-    //     return g => g.selectAll("g").data(y).join("g")
-    //         .attr("transform", (d, i) => `translate(0,${i * size})`)
-    //         .each(function (d) { return d3.select(this).call(axis.scale(d)); })
-    //         .call(g => g.select(".domain").remove())
-    //         .call(g => g.selectAll(".tick line").attr("stroke", "#ddd"))
-// }
+yAxis = {
+    const axis = d3.axisLeft()
+        .ticks(6)
+        .tickSize(-size * columns.length);
+        return g => g.selectAll("g").data(y).join("g")
+            .attr("transform", (d, i) => `translate(0,${i * size})`)
+            .each(function (d) { return d3.select(this).call(axis.scale(d)); })
+            .call(g => g.select(".domain").remove())
+            .call(g => g.selectAll(".tick line").attr("stroke", "#ddd"))
+        }
+    })
 
 
 
