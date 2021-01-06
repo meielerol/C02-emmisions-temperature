@@ -52,6 +52,9 @@ d3.csv(database).then(data => {
 });
 // console.log('inputFilterOptions',inputFilterOptions);
 
+// NEED HELP CONVERTING STRINGS TO INTEGERS
+// transform the temp, lat, and lon to integers
+
 // search the filters inputed
 function searchFilters() {
     // prevent page from refresh
@@ -86,10 +89,10 @@ function searchFilters() {
         inputFilterOptions = inputFilterOptions.filter(entry => entry.country.toLowerCase() === inputCountry);
     }
     if (inputLat != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude === inputLat);
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude.toFixed(decimal) === inputLat);
     }
     if (inputLon != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude === inputLon);
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude.toFixed(decimal) === inputLon);
     }
     console.log('inputsFiltered',inputFilterOptions);
 
