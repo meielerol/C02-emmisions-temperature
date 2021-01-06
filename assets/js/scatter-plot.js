@@ -70,21 +70,28 @@ x = columns.map(c => d3.scaleLinear()
 y = x.map(x => x.copy().range([size - padding / 2, padding / 2]))
 
 z = d3.scaleOrdinal()
-    .domain[0, d3.max(d => d.count)]
-    // .range(margin.top, height - margin.bottom);
+    .domain[0, d3.max(d => d.count)];
 
-yAxis = {
-    const axis = d3.axisLeft()
+xAxis = {
+    axis = d3.axisBottom()
         .ticks(6)
-        .tickSize(-size * columns.length);
+        .tickSize(size * columns.length),
+    return g => g.selectAll("g").data(x).join("g")
+        .attr("transform", (d, i) => `translate(${i * size},0)`)
+        .each(function(d) { return d3.select(this).call(axis.scale(d)); })
+        .call(g => g.select(".domain").remove())
+        .call(g => g.selectAll(".tick line").attr("stroke", "#ddd")),
+      }
+    ;
+yAxis = {
+        axis = d3.axisLeft()
+            .ticks(6)
+            .tickSize(-size * columns.length),
         return g => g.selectAll("g").data(y).join("g")
             .attr("transform", (d, i) => `translate(0,${i * size})`)
-            .each(function (d) { return d3.select(this).call(axis.scale(d)); })
+            .each(function(d) { return d3.select(this).call(axis.scale(d)); })
             .call(g => g.select(".domain").remove())
-            .call(g => g.selectAll(".tick line").attr("stroke", "#ddd"))
-        }
-    })
-
-
-
-
+            .call(g => g.selectAll(".tick line").attr("stroke", "#ddd")),
+      }
+    ;
+;
