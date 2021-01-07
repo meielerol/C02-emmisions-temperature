@@ -2,7 +2,7 @@
 var scatterplot = d3.select("#scatter-plot-visual")
 
 //variable for the pull of data
-var data = d3.csv("../assets/datasets/GlobalTemperatures.csv")
+var data = d3.csv("../assets/datasets/cleaned_major_city_temp.csv")
 
 //console log it
 console.log(data)
