@@ -2,7 +2,7 @@
 var scatterplot = d3.select("#scatter-plot-visual")
 
 //variable for the pull of data
-var data = d3.csv("../assets/datasets/cleaned_major_city_temp.csv")
+var data = d3.csv("../assets/datasets/GlobalTemperatures.csv")
 
 //console log it
 console.log(data)
@@ -73,10 +73,10 @@ z = d3.scaleOrdinal()
     .domain[0, d3.max(d => d.count)];
 
 xAxis = {
-    axis = d3.axisBottom()
+    constr: axis = d3.axisBottom()
         .ticks(6)
         .tickSize(size * columns.length),
-    return g => g.selectAll("g").data(x).join("g")
+            return: g => g.selectAll("g").data(x).join("g")
         .attr("transform", (d, i) => `translate(${i * size},0)`)
         .each(function(d) { return d3.select(this).call(axis.scale(d)); })
         .call(g => g.select(".domain").remove())
@@ -84,14 +84,14 @@ xAxis = {
       }
     ;
 yAxis = {
-        axis = d3.axisLeft()
-            .ticks(6)
-            .tickSize(-size * columns.length),
-        return g => g.selectAll("g").data(y).join("g")
-            .attr("transform", (d, i) => `translate(0,${i * size})`)
-            .each(function(d) { return d3.select(this).call(axis.scale(d)); })
-            .call(g => g.select(".domain").remove())
-            .call(g => g.selectAll(".tick line").attr("stroke", "#ddd")),
+    constr: axis = d3.axisLeft()
+        .ticks(6)
+        .tickSize(-size * columns.length),
+            return: g => g.selectAll("g").data(y).join("g")
+        .attr("transform", (d, i) => `translate(0,${i * size})`)
+        .each(function(d) { return d3.select(this).call(axis.scale(d)); })
+        .call(g => g.select(".domain").remove())
+        .call(g => g.selectAll(".tick line").attr("stroke", "#ddd")),
       }
     ;
 ;
