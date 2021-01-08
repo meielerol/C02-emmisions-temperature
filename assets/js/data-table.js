@@ -48,12 +48,16 @@ d3.csv(database).then(data => {
     // loop through each line individually
     data.forEach(d => {
         inputFilterOptions.push(d);
+        // console.log(d); //returns the whole row {dt: "", etc.}
     });
 });
-// console.log('inputFilterOptions',inputFilterOptions);
+console.log('inputFilterOptions',inputFilterOptions);
 
 // NEED HELP CONVERTING STRINGS TO INTEGERS
 // transform the temp, lat, and lon to integers
+inputFilterOptions.forEach(([key,value]) => {
+    console.log(`key: ${key} value: ${value}`);
+})
 
 // search the filters inputed
 function searchFilters() {
