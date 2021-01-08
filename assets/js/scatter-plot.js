@@ -1,7 +1,7 @@
 //variable for the pull of data
-d3.csv("../assets/datasets/cleaned_major_city_temp.csv").then(function (data) {
+d3.csv("../assets/datasets/cleaned_Rome_city_temp.csv").then(function (data) {
     data.forEach(d => {
-        d.dt =+d.dt;
+        d.dt =+d.date;
         d.average_temperature = +d.average_temperature
         console.log(data)
     });
@@ -17,7 +17,7 @@ d3.csv("../assets/datasets/cleaned_major_city_temp.csv").then(function (data) {
         .attr("transform", "translate(" + margin.left +"," + margin.top+ + ")");
     
     var x = d3.scaleLinear()
-        .domain(d3.extent(data.map(d=> d.dt)))
+        .domain(d3.extent(data.map(d=> d.date)))
         .range([0, width]);
     
     svg.append("g")
@@ -50,14 +50,14 @@ d3.csv("../assets/datasets/cleaned_major_city_temp.csv").then(function (data) {
         .append('g');
 
     gdots.append("circle")
-        .attr("cx", d => x(d.dt))
+        .attr("cx", d => x(d.date))
         .attr("cy", d => y(d.average_temperature))
         .attr("r", 8)
         .style("fill", "blue"),
 
     gdots.append("text")
         .text(d => d.abbr)
-        .attr("x", d => x(d.dt))
+        .attr("x", d => x(d.date))
         .attr("y", d => y(d.average_temperature))
         .attr("dx", -5)
         .attr("dy", 2)
