@@ -13,9 +13,9 @@ const database = "";
 /*------------SETTING UP THE MAIN LANDING DATA TABLE------------*/
 // import the csv file
 const database = "../assets/datasets/cleaned_major_city_temp.csv";
-d3.csv(database).then(data => {
-    console.log('csv data', data);
-});
+// d3.csv(database).then(data => {
+//     console.log('csv data', data);
+// });
 
 // headers from table:
 // dt, average_temperature, city, country, latitude, longitude
@@ -87,24 +87,35 @@ function searchFilters() {
     let inputLat = elementLat.property("value");
     let inputLon = elementLon.property("value");
 
+    console.log('input temp',inputTemp);
+    console.log('input city',inputCity);
+    console.log('input lat',inputLat);
+    console.log('input lon',inputLon);
+
     // handle multiiple filters by filtering entries through matching sets in the data
     if (inputDate != "") {
+        // console.log(inputFilterOptions.filter(entry => entry.dt === inputDate));
         inputFilterOptions = inputFilterOptions.filter(entry => entry.dt === inputDate);
     }
     if (inputTemp != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.average_temperature === inputTemp);
+        // console.log(inputFilterOptions.filter(entry => entry.average_temperature === parseFloat(inputTemp)));
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.average_temperature === parseFloat(inputTemp));
     }
     if (inputCity != "") {
+        // console.log(inputFilterOptions.filter(entry => entry.city.toLowerCase() === inputCity));
         inputFilterOptions = inputFilterOptions.filter(entry => entry.city.toLowerCase() === inputCity);
     }
     if (inputCountry != "") {
+        // console.log(inputFilterOptions.filter(entry => entry.country.toLowerCase() === inputCountry));
         inputFilterOptions = inputFilterOptions.filter(entry => entry.country.toLowerCase() === inputCountry);
     }
     if (inputLat != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude === inputLat);
+        // console.log(inputFilterOptions.filter(entry => entry.latitude === parseFloat(inputLat)));
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude === parseFloat(inputLat));
     }
     if (inputLon != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude === inputLon);
+        // console.log(inputFilterOptions.filter(entry => entry.longitude === parseFloat(inputLon)));
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude === parseFloat(inputLon));
     }
     console.log('inputsFiltered',inputFilterOptions);
 
