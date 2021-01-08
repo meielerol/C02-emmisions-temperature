@@ -47,17 +47,25 @@ let inputFilterOptions = [];
 d3.csv(database).then(data => {
     // loop through each line individually
     data.forEach(d => {
+        // transform the temp, lat, and lon to integers
+        // use parseFloat()
+        d.average_temperature = parseFloat(d.average_temperature);
+        d.latitude = parseFloat(d.latitude);
+        d.longitude = parseFloat(d.longitude);
         inputFilterOptions.push(d);
         // console.log(d); //returns the whole row {dt: "", etc.}
     });
-});
-console.log('inputFilterOptions',inputFilterOptions);
+    console.log('inputFilterOptions - inside function',inputFilterOptions);
+    // console.log('inside length', inputFilterOptions.length);
+    // console.log('inside element 0', inputFilterOptions[0]);
 
-// NEED HELP CONVERTING STRINGS TO INTEGERS
-// transform the temp, lat, and lon to integers
-inputFilterOptions.forEach(([key,value]) => {
-    console.log(`key: ${key} value: ${value}`);
-})
+});
+/*
+// javascript runs asynchronously so these don't pull anything because it hasn't finished loading
+console.log('outside function', inputFilterOptions);
+console.log('outside length', inputFilterOptions.length);
+console.log('outside element 0', inputFilterOptions[0]);
+*/
 
 // search the filters inputed
 function searchFilters() {
@@ -93,10 +101,10 @@ function searchFilters() {
         inputFilterOptions = inputFilterOptions.filter(entry => entry.country.toLowerCase() === inputCountry);
     }
     if (inputLat != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude.toFixed(decimal) === inputLat);
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude === inputLat);
     }
     if (inputLon != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude.toFixed(decimal) === inputLon);
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude === inputLon);
     }
     console.log('inputsFiltered',inputFilterOptions);
 
@@ -115,6 +123,7 @@ function searchFilters() {
     });
 };
 
+// because of weird asynchrony:
 // call the function when the button is clicked
 btnFilter.on("click",searchFilters);
 form.on("submit",searchFilters);
