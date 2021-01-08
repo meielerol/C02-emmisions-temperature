@@ -13,9 +13,9 @@ const database = "";
 /*------------SETTING UP THE MAIN LANDING DATA TABLE------------*/
 // import the csv file
 const database = "../assets/datasets/cleaned_major_city_temp.csv";
-// d3.csv(database).then(data => {
-//     console.log('csv data', data);
-// });
+d3.csv(database).then(data => {
+    console.log('csv data', data);
+});
 
 // headers from table:
 // dt, average_temperature, city, country, latitude, longitude
@@ -55,7 +55,7 @@ d3.csv(database).then(data => {
         inputFilterOptions.push(d);
         // console.log(d); //returns the whole row {dt: "", etc.}
     });
-    console.log('inputFilterOptions - inside function',inputFilterOptions);
+    // console.log('inputFilterOptions - inside function',inputFilterOptions);
     // console.log('inside length', inputFilterOptions.length);
     // console.log('inside element 0', inputFilterOptions[0]);
 
