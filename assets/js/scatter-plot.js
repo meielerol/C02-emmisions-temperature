@@ -1,97 +1,66 @@
-//isolate the object for the scatter plot from the html
-var scatterplot = d3.select("#scatter-plot-visual")
-
 //variable for the pull of data
-var data = d3.csv("../assets/datasets/cleaned_major_city_temp.csv")
+d3.csv("../assets/datasets/cleaned_major_city_temp.csv").then(function (data) {
+    data.forEach(d => {
+        d.dt =+d.dt;
+        d.average_temperature = +d.average_temperature
+        console.log(data)
+    });
+    var margin = {top: 10, right: 30, bottom: 60, left: 60},
+        width = 700 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
+    
+    var svg = d3.select("#scatter-plot")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left +"," + margin.top+ + ")");
+    
+    var x = d3.scaleLinear()
+        .domain(d3.extent(data.map(d=> d.dt)))
+        .range([0, width]);
+    
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+    
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2)
+        .attr("y", height +40)
+        .text("date (year)");
 
-//console log it
-console.log(data)
-//data pull is successful !!!
+    var y = d3.scaleLinear()
+        .domain(d3.extent(data.map(d => d.average_temperature)))
+        .range([height, 0]);
 
-// import { swatches } from "@d3/color-legend"
+    svg.append("g")
+        .call(d3.axisLeft(y)),
+    
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .attr("x", (height / 2) * -1)
+        .attr("y", -30)
+        .text("Average Temperature (F)");
+    
+    var gdots = svg.selectAll("g.dot")
+        .data(data)
+        .enter()
+        .append('g');
 
-//next build the plot
-function brush(cell, circle, svg) {
-    const brush = d3.brush()
-        .extent([[padding / 2, padding / 2], [size - padding / 2, size - padding / 2]])
-        .on("start", brushstarted)
-        .on("brush", brushed)
-        .on("end", brushended);
+    gdots.append("circle")
+        .attr("cx", d => x(d.dt))
+        .attr("cy", d => y(d.average_temperature))
+        .attr("r", 8)
+        .style("fill", "blue"),
 
-    cell.call(brush);
-
-    let brushCell;
-
-    // Clear the previously-active brush, if any.
-    function brushstarted() {
-        if (brushCell !== this) {
-            d3.select(brushCell).call(brush.move, null);
-            brushCell = this;
-        }
-    }
-    // Highlight the selected circles.
-    function brushed({ selection }, [i, j]) {
-        let selected = [];
-        if (selection) {
-            const [[x0, y0], [x1, y1]] = selection;
-            circle.classed("hidden",
-                d => x0 > x[i](d[columns[i]])
-                    || x1 < x[i](d[columns[i]])
-                    || y0 > y[j](d[columns[j]])
-                    || y1 < y[j](d[columns[j]]));
-            selected = data.filter(
-                d => x0 < x[i](d[columns[i]])
-                    && x1 > x[i](d[columns[i]])
-                    && y0 < y[j](d[columns[j]])
-                    && y1 > y[j](d[columns[j]]));
-        }
-        svg.property("value", selected).dispatch("input");
-    }
-
-    // If the brush is empty, select all circles.
-    function brushended({ selection }) {
-        if (selection) return;
-        svg.property("value", []).dispatch("input");
-        circle.classed("hidden", false);
-    }
-}
-columns = ['dt', 'average_temperature', 'city', 'country', 'latitude', 'logitude']
-
-width = 954
-
-padding = 50
-
-size = (width - (columns.length + 1) * padding) / columns.length + padding
-
-x = columns.map(c => d3.scaleLinear()
-    .domain(d3.extent(data, d => d[c]))
-    .rangeRound([padding / 2, size - padding / 2]));
-
-y = x.map(x => x.copy().range([size - padding / 2, padding / 2]))
-
-z = d3.scaleOrdinal()
-    .domain[0, d3.max(d => d.count)];
-
-xAxis = {
-    constr: axis = d3.axisBottom()
-        .ticks(6)
-        .tickSize(size * columns.length),
-            return: g => g.selectAll("g").data(x).join("g")
-        .attr("transform", (d, i) => `translate(${i * size},0)`)
-        .each(function(d) { return d3.select(this).call(axis.scale(d)); })
-        .call(g => g.select(".domain").remove())
-        .call(g => g.selectAll(".tick line").attr("stroke", "#ddd")),
-      }
-    ;
-yAxis = {
-    constr: axis = d3.axisLeft()
-        .ticks(6)
-        .tickSize(-size * columns.length),
-            return: g => g.selectAll("g").data(y).join("g")
-        .attr("transform", (d, i) => `translate(0,${i * size})`)
-        .each(function(d) { return d3.select(this).call(axis.scale(d)); })
-        .call(g => g.select(".domain").remove())
-        .call(g => g.selectAll(".tick line").attr("stroke", "#ddd")),
-      }
-    ;
-;
+    gdots.append("text")
+        .text(d => d.abbr)
+        .attr("x", d => x(d.dt))
+        .attr("y", d => y(d.average_temperature))
+        .attr("dx", -5)
+        .attr("dy", 2)
+        .style("font-size", "7px");
+    
+});
