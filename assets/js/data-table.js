@@ -13,9 +13,9 @@ const database = "";
 /*------------SETTING UP THE MAIN LANDING DATA TABLE------------*/
 // import the csv file
 const database = "../assets/datasets/cleaned_major_city_temp.csv";
-d3.csv(database).then(data => {
-    console.log('csv data', data);
-});
+// d3.csv(database).then(data => {
+//     console.log('csv data', data);
+// });
 
 // headers from table:
 // dt, average_temperature, city, country, latitude, longitude
@@ -47,17 +47,25 @@ let inputFilterOptions = [];
 d3.csv(database).then(data => {
     // loop through each line individually
     data.forEach(d => {
+        // transform the temp, lat, and lon to integers
+        // use parseFloat()
+        d.average_temperature = parseFloat(d.average_temperature);
+        d.latitude = parseFloat(d.latitude);
+        d.longitude = parseFloat(d.longitude);
         inputFilterOptions.push(d);
         // console.log(d); //returns the whole row {dt: "", etc.}
     });
-});
-console.log('inputFilterOptions',inputFilterOptions);
+    console.log('inputFilterOptions - inside function',inputFilterOptions);
+    // console.log('inside length', inputFilterOptions.length);
+    // console.log('inside element 0', inputFilterOptions[0]);
 
-// NEED HELP CONVERTING STRINGS TO INTEGERS
-// transform the temp, lat, and lon to integers
-inputFilterOptions.forEach(([key,value]) => {
-    console.log(`key: ${key} value: ${value}`);
-})
+});
+/*
+// javascript runs asynchronously so these don't pull anything because it hasn't finished loading
+console.log('outside function', inputFilterOptions);
+console.log('outside length', inputFilterOptions.length);
+console.log('outside element 0', inputFilterOptions[0]);
+*/
 
 // search the filters inputed
 function searchFilters() {
@@ -79,24 +87,35 @@ function searchFilters() {
     let inputLat = elementLat.property("value");
     let inputLon = elementLon.property("value");
 
+    console.log('input temp',inputTemp);
+    console.log('input city',inputCity);
+    console.log('input lat',inputLat);
+    console.log('input lon',inputLon);
+
     // handle multiiple filters by filtering entries through matching sets in the data
     if (inputDate != "") {
+        // console.log(inputFilterOptions.filter(entry => entry.dt === inputDate));
         inputFilterOptions = inputFilterOptions.filter(entry => entry.dt === inputDate);
     }
     if (inputTemp != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.average_temperature === inputTemp);
+        // console.log(inputFilterOptions.filter(entry => entry.average_temperature === parseFloat(inputTemp)));
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.average_temperature === parseFloat(inputTemp));
     }
     if (inputCity != "") {
+        // console.log(inputFilterOptions.filter(entry => entry.city.toLowerCase() === inputCity));
         inputFilterOptions = inputFilterOptions.filter(entry => entry.city.toLowerCase() === inputCity);
     }
     if (inputCountry != "") {
+        // console.log(inputFilterOptions.filter(entry => entry.country.toLowerCase() === inputCountry));
         inputFilterOptions = inputFilterOptions.filter(entry => entry.country.toLowerCase() === inputCountry);
     }
     if (inputLat != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude.toFixed(decimal) === inputLat);
+        // console.log(inputFilterOptions.filter(entry => entry.latitude === parseFloat(inputLat)));
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.latitude === parseFloat(inputLat));
     }
     if (inputLon != "") {
-        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude.toFixed(decimal) === inputLon);
+        // console.log(inputFilterOptions.filter(entry => entry.longitude === parseFloat(inputLon)));
+        inputFilterOptions = inputFilterOptions.filter(entry => entry.longitude === parseFloat(inputLon));
     }
     console.log('inputsFiltered',inputFilterOptions);
 
@@ -115,6 +134,7 @@ function searchFilters() {
     });
 };
 
+// because of weird asynchrony:
 // call the function when the button is clicked
 btnFilter.on("click",searchFilters);
 form.on("submit",searchFilters);
