@@ -87,10 +87,10 @@ function searchFilters() {
     let inputLat = elementLat.property("value");
     let inputLon = elementLon.property("value");
 
-    console.log('input temp',inputTemp);
-    console.log('input city',inputCity);
-    console.log('input lat',inputLat);
-    console.log('input lon',inputLon);
+    // console.log('input temp',inputTemp);
+    // console.log('input city',inputCity);
+    // console.log('input lat',inputLat);
+    // console.log('input lon',inputLon);
 
     // handle multiiple filters by filtering entries through matching sets in the data
     if (inputDate != "") {
