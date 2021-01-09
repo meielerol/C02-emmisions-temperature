@@ -98,6 +98,7 @@ function buildPlot(){
         
         newyorkTemp.push(average_temperature)      
       }
+
       
       //  Define SVG area dimensions
         var svgWidth = 0;
@@ -167,7 +168,7 @@ function buildPlot(){
           name: 'New York',
           line: {color: 'orange'}
         }
-        var data = [trace1, trace3, trace4, trace5];
+        var data = [trace1, trace2, trace3, trace4, trace5];
 
         var layout = {
           title: 'Time Series Graph',
@@ -177,7 +178,7 @@ function buildPlot(){
           },
           yaxis: {
             autorange: false,
-            range: [0, 30],
+            range: [-20, 30],
             type: 'linear'
           }
         };
