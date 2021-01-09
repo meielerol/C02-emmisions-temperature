@@ -1,5 +1,5 @@
 const {Pool, Client} = require('pg')
-const connectionString = 'postgressql://postgres:T0nielt1gre@localhost:5432/climate_change'
+const connectionString = `postgressql://${Postgres_User}:${Postgres_Password}@localhost:5432/climate_change`
 
 const client = new Client({
     connectionString: connectionString,
