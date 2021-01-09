@@ -99,8 +99,8 @@ function buildPlot(){
 
       console.log(aleppoData)
       //  Define SVG area dimensions
-        var svgWidth = 0;
-        var svgHeight = 700;
+        var svgWidth = "100%";
+        var svgHeight = "100%";
 
         // // Define the chart's margins as an object
         // var margin = {
