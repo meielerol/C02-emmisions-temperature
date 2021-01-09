@@ -8,7 +8,7 @@ app.use(express.json())
 
 app.get("/todos", async(req,res)=>{
  try {
-     const allCleanData =  await pool.query("select * from cleaned_global_land_temperatures_by_major_city WHERE extract(month from dt) = '8' and city IN ('Paris','Taipei','Saint Petersburg','Sydney','New York') order by dt asc");
+     const allCleanData =  await pool.query("select * from cleaned_global_land_temperatures_by_major_city WHERE extract(month from dt) = '8' and city IN ('Paris','Aleppo','Saint Petersburg','Shanghai','New York') order by dt asc");
      res.setHeader("Access-Control-Allow-Origin","*")
      res.json(allCleanData.rows)
 } catch (error) {

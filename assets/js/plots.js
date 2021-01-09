@@ -2,19 +2,18 @@ function buildPlot(){
   fetch('http://localhost:5000/todos')
     .then(response => response.json())
     .then(function(data){
+      
       let parisDates = []
       let parisTemp = []
-      let maxParisTempArray = []
 
-
-      let taipeiDates=[]
-      let taipeiTemp=[]
+      let aleppoDates=[]
+      let aleppoTemp=[]
       
       let saintpetersburgDates=[]
       let saintpetersburgTemp=[]
       
-      let sydneyDates=[]
-      let sydneyTemp=[]
+      let shanghaiDates=[]
+      let shanghaiTemp=[]
       
       let newyorkDates=[]
       let newyorkTemp=[]
@@ -22,9 +21,9 @@ function buildPlot(){
 
 
       let parisData = data.filter(d=>d.city =='Paris')
-      let taipeiData = data.filter(d=>d.city =='Taipei')
+      let aleppoData = data.filter(d=>d.city =='Aleppo')
       let saintpetersburgData = data.filter(d=>d.city =='Saint Petersburg')
-      let sydneyData = data.filter(d=>d.city =='Sydney')
+      let shanghaiData = data.filter(d=>d.city =='Shanghai')
       let newyorkData = data.filter(d=>d.city =='New York')
       
       
@@ -34,7 +33,6 @@ function buildPlot(){
         
         objDate = climateChange.dt
         let d = new Date(objDate)
-        maxParisTempArray.push(d.toLocaleDateString())
         parisDates.push(d.toISOString())
         
         let objTemperature = climateChange.average_temperature
@@ -42,19 +40,19 @@ function buildPlot(){
         
         parisTemp.push(average_temperature)      
       }
-      for (var i = 0; i < taipeiData.length; i++){
+      for (var i = 0; i < aleppoData.length; i++){
         
-        let climateChange = taipeiData[i]
+        let climateChange = aleppoData[i]
        
         objDate = climateChange.dt
         let d = new Date(objDate)
         
-        taipeiDates.push(d.toISOString())
+        aleppoDates.push(d.toISOString())
         
         let objTemperature = climateChange.average_temperature
         average_temperature = (objTemperature)
         
-        taipeiTemp.push(average_temperature)      
+        aleppoTemp.push(average_temperature)      
       }
       for (var i = 0; i < saintpetersburgData.length; i++){
         
@@ -70,19 +68,19 @@ function buildPlot(){
         
         saintpetersburgTemp.push(average_temperature)      
       }
-      for (var i = 0; i < sydneyData.length; i++){
+      for (var i = 0; i < shanghaiData.length; i++){
         
-        let climateChange = sydneyData[i]
+        let climateChange = shanghaiData[i]
        
         objDate = climateChange.dt
         let d = new Date(objDate)
         
-        sydneyDates.push(d.toISOString())
+        shanghaiDates.push(d.toISOString())
         
         let objTemperature = climateChange.average_temperature
         average_temperature = (objTemperature)
         
-        sydneyTemp.push(average_temperature)      
+        shanghaiTemp.push(average_temperature)      
       }
       for (var i = 0; i <  newyorkData.length; i++){
         
@@ -99,7 +97,7 @@ function buildPlot(){
         newyorkTemp.push(average_temperature)      
       }
 
-      
+      console.log(aleppoData)
       //  Define SVG area dimensions
         var svgWidth = 0;
         var svgHeight = 700;
@@ -138,8 +136,9 @@ function buildPlot(){
         var trace2 = {
           type: "scatter",
           // mode: "lines",
-          x: taipeiDates,
-          y: taipeiTemp,
+          x: aleppoDates,
+          y: aleppoTemp,
+          name:'Aleppo',
           line: {color: 'blue'}
         }
 
@@ -155,9 +154,10 @@ function buildPlot(){
         var trace4 = {
           type: "scatter",
           // mode: "lines",
-          x: sydneyDates,
-          y: sydneyTemp,
-          line: {color: 'yellow'}
+          x: shanghaiDates,
+          y: shanghaiTemp,
+          name: 'Shanghai',
+          line: {color: 'black'}
         }
 
         var trace5 = {
@@ -173,12 +173,12 @@ function buildPlot(){
         var layout = {
           title: 'Time Series Graph',
           xaxis: {
-            autorange: ['1743-11-01', '2013-11-01'],
+            range: ['1800-11-01', '2013-11-01'],
             type: 'date'
           },
           yaxis: {
             autorange: false,
-            range: [-20, 30],
+            range: [5, 35],
             type: 'linear'
           }
         };
